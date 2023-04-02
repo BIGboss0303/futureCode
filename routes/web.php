@@ -1,10 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\V1\InvoiceController;
 use App\Http\Controllers\Api\V1\ProductController;
 use App\Http\Controllers\Api\V1\CategoryController;
-use App\Http\Controllers\Api\V1\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +21,6 @@ Route::get('/', function () {
 
 
 Route::group(['prefix'=>'v1', 'namespace'=> 'App\Http\Controllers\Api\V1'], function(){
-    Route::GET('customers',[CustomerController::class,'index']);
-    Route::apiResource('customers/{id}/invoices',InvoiceController::class);
 
 
     Route::GET('categories',[CategoryController::class,'index']);
