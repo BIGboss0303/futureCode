@@ -20,15 +20,6 @@ Route::get('/', function () {
 });
 
 
-Route::group(['prefix'=>'v1', 'namespace'=> 'App\Http\Controllers\Api\V1'], function(){
 
-
-    Route::GET('categories',[CategoryController::class,'index']);
-    Route::GET('categories/{id}/products',[ProductController::class,'index']);
-    Route::GET('categories/{categoryId}/products/{id}',[ProductController::class,'show']);
-
-
-    
-});
 
 //Route::Resource('customers',CustomerController::class);

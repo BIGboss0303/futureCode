@@ -13,4 +13,20 @@ class CategoryController extends Controller
     public function index(){
         return new CategoryCollection(Category::all());
     }
+    public function store(Request $request){
+        $validated = $request->validate([
+            'name'=>'required|unique:categories',
+        ]);
+        Category::create($validated);
+    }
+    public function update($id,Request $request){
+        $validated = $request->validate([
+            'name'=>'required',
+        ]);
+        Category::where('id',$id)->update($validated);
+    }
+    public function destroy($id)
+    {
+        Category::destroy($id);
+    }
 }
